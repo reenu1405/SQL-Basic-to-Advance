@@ -1,7 +1,6 @@
 
 /*
-Skills used : create tables, delete, drop, insert data, select queries, alter,constraints,
-update
+Skills used : create tables, delete, drop, insert data, select queries, alter,constraints,top or limit,update
 */
 
 
@@ -29,12 +28,23 @@ delete from amazon_orders;
 --SQL--> structured query language
 
 -- DQL -> data querying language
+
 select * from amazon_orders;
+
 --limiting columns or selecting specific columns
+
 select product_name,order_date,total_price from amazon_orders;
+
 --limiting rows
+
 select top 1 * from amazon_orders;
+/* IN MYSQL  we use limit :
+select * from amazon_orders
+limit 1;
+*/
+
 --data sorting
+
 select * from amazon_orders
 order by order_date desc,product_name desc,payment_method;
 
@@ -44,6 +54,7 @@ select * from amazon_orders;
 
 --change data type of a column
 alter table amazon_orders alter column order_date datetime; --DDL
+-- IN MYSQL  we use modify : alter table amazon_orders modify column order_date datetime;
 alter table amazon_orders alter column order_id date; --DDL data type should be compatible
 alter table amazon_orders alter column product_name varchar(20); --DDL data type should be compatible
 alter table amazon_orders alter column order_date datetime; --DDL data type should be compatible
