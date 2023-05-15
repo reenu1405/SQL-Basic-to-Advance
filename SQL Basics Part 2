@@ -1,6 +1,6 @@
 -- Superstore orders dataset
 /*
-Skills Used : top,distinct, filters(=, !=, <, >, >=,<=),in,between,pattern matching like operator, filtering null values, aggregate functions(avg, count, sum, min, max, etc),group by,order by,database joins(inner join,left,right joins,full outer join)
+Skills Used : top,distinct, filters(=, !=, <, >, >=,<=),in,between,pattern matching like operator, filtering null values, aggregate functions(avg, count, sum, min, max, group_concat,first,last)),group by,order by,database joins(inner join,left,right joins,full outer join)
 
 */
 
@@ -195,6 +195,18 @@ from orders
 where order_date > '2020-01-01'
 group by sub_category
 order by total_sales desc;
+
+-- string_agg(column_name,' ') : in sql
+select dept_id,STRING_AGG(emp_name,';' )  WITHIN GROUP (ORDER BY salary desc) as list_of_employees
+from employee
+group by dept_id;
+
+-- group_concat(column_name) : in mysql
+select dept_id,group_concat(emp_name ORDER BY salary desc) as list_of_employees
+from employee
+group by dept_id
+;
+
 
 ---count
 select count(distinct region),
