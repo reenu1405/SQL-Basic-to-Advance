@@ -72,7 +72,7 @@ from credit_card_transaction
 group by  city
 having gold_total>0
 order by gold_total)
-select city,gold_total*100.0/total as percent
+select city,gold_total*1.0/total as percent
 from cte
 order by percent
 limit 1;
